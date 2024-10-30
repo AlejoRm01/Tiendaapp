@@ -30,6 +30,7 @@ GET /products: Obtiene todos los productos. (index)
     }
 
 POST /products: Crea un nuevo producto. (store)
+
     {
         "name": "Producto 4",
         "unit": "Unidad",
@@ -74,4 +75,5 @@ PUT /brands/{id}: Actualiza una marca por ID. (update)
     {
     "name": "Marca 3 actualizada"
     }
+    
 DELETE /brands/{id}: Elimina una marca por ID. (destroy)
