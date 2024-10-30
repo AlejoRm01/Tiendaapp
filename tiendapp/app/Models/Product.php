@@ -17,6 +17,7 @@ class Product extends Model
         'brand_id',
         'description',
         'stock',
+        'boarding_date'
     ];
 
     protected static function boot()

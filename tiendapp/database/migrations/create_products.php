@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->text('description')->nullable();
             $table->integer('stock')->default(0)->nullable();
+            $table->timestamp('boarding_date')->nullable();
             $table->timestamps();
         });
     }

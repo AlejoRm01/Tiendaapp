@@ -30,7 +30,14 @@ GET /products: Obtiene todos los productos. (index)
     }
 
 POST /products: Crea un nuevo producto. (store)
-
+    {
+        "name": "Producto 4",
+        "unit": "Unidad",
+        "description": "Descripción del producto 4",
+        "stock": 50,
+        "boarding_date": "2024-10-30 18:57:44",
+        "brand_id": "869df13c-b47e-45b5-9eb2-f6914f9c8b40"
+    }
 GET /products/{id}: Muestra un producto específico por ID. (show)
 
 PUT /products/{id}: Actualiza un producto por ID. (update)
@@ -40,6 +47,7 @@ PUT /products/{id}: Actualiza un producto por ID. (update)
     "unit": "Unidad",
     "description": "Descripción actualizada del producto 4",
     "stock": 50,
+    "boarding_date": "2024-10-30 18:57:44",
     "brand_id": "d92e41ec-a1b5-4e18-b673-8d80489eaca7"
     }
 
@@ -66,5 +74,4 @@ PUT /brands/{id}: Actualiza una marca por ID. (update)
     {
     "name": "Marca 3 actualizada"
     }
-    
 DELETE /brands/{id}: Elimina una marca por ID. (destroy)

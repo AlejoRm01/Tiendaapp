@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class ProductSeeder extends Seeder
 {
@@ -21,6 +22,7 @@ class ProductSeeder extends Seeder
             'unit' => 'Unidad',
             'brand_id' => $brand1->id,
             'description' => 'Descripción del producto 1',
+            'boarding_date' => Carbon::now(),
             'stock' => 10,
         ]);
 
@@ -29,6 +31,7 @@ class ProductSeeder extends Seeder
             'unit' => 'Unidad',
             'brand_id' => $brand2->id,
             'description' => 'Descripción del producto 2',
+            'boarding_date' => Carbon::now(),
             'stock' => 20,
         ]);
 
@@ -37,6 +40,7 @@ class ProductSeeder extends Seeder
             'unit' => 'Unidad',
             'brand_id' => $brand3->id,
             'description' => 'Descripción del producto 3',
+            'boarding_date' => Carbon::now(),
             'stock' => 30,
         ]);
         
@@ -45,6 +49,7 @@ class ProductSeeder extends Seeder
             'unit' => 'Unidad',
             'brand_id' => $brand4->id,
             'description' => 'Descripción del producto 4',
+            'boarding_date' => Carbon::now(),
             'stock' => 40,
         ]);
         
@@ -53,6 +58,7 @@ class ProductSeeder extends Seeder
             'unit' => 'Unidad',
             'brand_id' => $brand5->id,
             'description' => 'Descripción del producto 5',
+            'boarding_date' => Carbon::now(),
             'stock' => 50,
         ]);
     }

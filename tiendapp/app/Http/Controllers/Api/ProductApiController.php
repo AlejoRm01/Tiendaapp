@@ -16,6 +16,7 @@ class ProductApiController extends Controller
                 'name' => $product->name,
                 'unit' => $product->unit,
                 'description' => $product->description,
+                'boarding_date' => $product->boarding_date,
                 'stock' => $product->stock,
                 'created_at' => $product->created_at,
                 'updated_at' => $product->updated_at,
@@ -28,10 +29,10 @@ class ProductApiController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'unit' => 'required|string|in:Unidad,Display,Caja|max:7',
-            'description' => 'nullable|string',
+            'unit' => 'required|string|in:Unidad,Display,Caja|max:10',
+            'description' => 'required|string',
+            'boarding_date' => 'required|date',
             'stock' => 'required|integer|min:0',
-            'shipment_date' => 'nullable|date',
             'brand_id' => 'required|exists:brands,id'
         ]);
 
@@ -49,6 +50,7 @@ class ProductApiController extends Controller
             'name' => $product->name,
             'unit' => $product->unit,
             'description' => $product->description,
+            'boarding_date' => $product->boarding_date ? $product->boarding_date->toISOString() : null,
             'stock' => $product->stock,
             'created_at' => $product->created_at,
             'updated_at' => $product->updated_at,
@@ -62,11 +64,11 @@ class ProductApiController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'string|max:255',
-            'unit' => 'string|in:Unidad,Display,Caja|max:7',
-            'description' => 'nullable|string',
+            'name' => 'required|string|max:255',
+            'unit' => 'required|string|in:Unidad,Display,Caja|max:7',
+            'description' => 'required|string',
+            'boarding_date' => 'required|date',
             'stock' => 'integer|min:0',
-            'shipment_date' => 'nullable|date',
             'brand_id' => 'exists:brands,id'
         ]);
 
