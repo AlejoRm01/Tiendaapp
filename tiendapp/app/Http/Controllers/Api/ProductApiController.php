@@ -42,8 +42,21 @@ class ProductApiController extends Controller
 
     public function show($id)
     {
-        $product = Product::with('brand')->where('id', $id)->firstOrFail();
-        return response()->json($product);
+        $product = Product::with('brand:id,name')->where('id', $id)->firstOrFail();
+
+        return response()->json([
+            'id' => $product->id,
+            'name' => $product->name,
+            'unit' => $product->unit,
+            'description' => $product->description,
+            'stock' => $product->stock,
+            'created_at' => $product->created_at,
+            'updated_at' => $product->updated_at,
+            'brand' => [
+                'id' => $product->brand->id,
+                'name' => $product->brand->name,
+            ],
+        ]);
     }
 
     public function update(Request $request, $id)
