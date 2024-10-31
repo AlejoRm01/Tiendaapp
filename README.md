@@ -1,10 +1,20 @@
-"# Tiendaapp" 
+# Tiendaapp prueba tecnica 
 
-# MIGRATIONS
+Prueba tecnica realizada por Alejandro Rodriguez
+
+### Consideraciones 
+
+Como identificador unico se usa UUID, también se preparan algunos datos de prueba para llenar la base de datos y demostrar la concurrencia, se usa MySQL como motor de la base de datos.
+
+Como dato a notar se aplica inversion de dependencias tanto para el backend como frontend.
+
+El nombre de la base de datos por defecto es tienda y recordar ejecutar los seeds.
+
+# Migraciones
 
 php artisan migrate
 
-# SEED
+# Seed
 
 php artisan db:seed
 
@@ -12,7 +22,7 @@ php artisan db:seed
 
 ### Products 
 
-GET /products: Obtiene todos los productos. (index)
+GET /Api/products: Obtiene todos los productos. (index)
 
     {
             "id": "    
@@ -29,7 +39,7 @@ GET /products: Obtiene todos los productos. (index)
         }
     }
 
-POST /products: Crea un nuevo producto. (store)
+POST /Api//products: Crea un nuevo producto. (store)
 
     {
         "name": "Producto 4",
@@ -39,9 +49,9 @@ POST /products: Crea un nuevo producto. (store)
         "boarding_date": "2024-10-30 18:57:44",
         "brand_id": "869df13c-b47e-45b5-9eb2-f6914f9c8b40"
     }
-GET /products/{id}: Muestra un producto específico por ID. (show)
+GET /Api//products/{id}: Muestra un producto específico por ID. (show)
 
-PUT /products/{id}: Actualiza un producto por ID. (update)
+PUT /Api//products/{id}: Actualiza un producto por ID. (update)
 
     {
     "name": "Producto 4 Actualizado",
@@ -52,11 +62,11 @@ PUT /products/{id}: Actualiza un producto por ID. (update)
     "brand_id": "d92e41ec-a1b5-4e18-b673-8d80489eaca7"
     }
 
-DELETE /products/{id}: Elimina un producto por ID. (destroy)
+DELETE /Api//products/{id}: Elimina un producto por ID. (destroy)
 
 ### Brands
 
-GET /brands: Obtiene todas las marcas. (index)
+GET /Api//brands: Obtiene todas las marcas. (index)
 
     {
         "id": "18474e27-43a7-4e35-b7f2-4c7f31869c57",
@@ -66,14 +76,14 @@ GET /brands: Obtiene todas las marcas. (index)
         -30T17:53:52.000000Z"
     }
 
-POST /brands: Crea una nueva marca. (store)
+POST /Api//brands: Crea una nueva marca. (store)
 
-GET /brands/{id}: Muestra una marca específica por ID. (show)
+GET /Api//brands/{id}: Muestra una marca específica por ID. (show)
 
-PUT /brands/{id}: Actualiza una marca por ID. (update)
+PUT /Api//brands/{id}: Actualiza una marca por ID. (update)
 
     {
     "name": "Marca 3 actualizada"
     }
     
-DELETE /brands/{id}: Elimina una marca por ID. (destroy)
+DELETE /Api//brands/{id}: Elimina una marca por ID. (destroy)

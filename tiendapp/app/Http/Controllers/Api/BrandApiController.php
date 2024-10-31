@@ -2,51 +2,45 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Brand;
+use App\Services\BrandServiceInterface;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class BrandApiController extends Controller
 {
+    protected $brandService;
+
+    public function __construct(BrandServiceInterface $brandService)
+    {
+        $this->brandService = $brandService;
+    }
+
     public function index()
     {
-        return Brand::all();
+        return $this->brandService->getAllBrands();
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255'
-        ]);
-
-        $brand = Brand::create($request->all());
-
+        $brand = $this->brandService->createBrand($request);
         return response()->json($brand, 201);
     }
 
     public function show($id)
     {
-        $brand = Brand::where('id', $id)->firstOrFail();
+        $brand = $this->brandService->getBrandById($id);
         return response()->json($brand);
     }
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'string|max:255',
-        ]);
-
-        $brand = Brand::where('id', $id)->firstOrFail();
-        $brand->update($request->all());
-
+        $brand = $this->brandService->updateBrand($request, $id);
         return response()->json($brand);
     }
 
     public function destroy($id)
     {
-        $brand = Brand::where('id', $id)->firstOrFail();
-        $brand->delete();
-
+        $this->brandService->deleteBrand($id);
         return response()->json(null, 204);
     }
 }

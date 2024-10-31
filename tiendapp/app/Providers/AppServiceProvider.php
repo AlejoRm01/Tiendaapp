@@ -30,4 +30,9 @@ class AppServiceProvider extends ServiceProvider
         });
     }
     
+    public function register()
+    {
+        $this->app->bind(\App\Services\ProductServiceInterface::class, \App\Services\ProductService::class);
+        $this->app->bind(\App\Services\BrandServiceInterface::class, \App\Services\BrandService::class);
+    }
 }
